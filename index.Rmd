@@ -36,6 +36,7 @@ library(tidyr)
 library(plotly)
 library(htmlwidgets)
 library(leaflet)
+library(ggthemes)
 library(stringr)
 ```
 
@@ -83,6 +84,8 @@ YTmap<-left_join(USmap,HSsegmean, by="region")
 
 ```
 
+
+As it is likert data the values tend toward an average of three, peer belonging is the most interesting and will be the one I present. I'd like to develop a map that could click between factors, but perhaps that would be a good shiny app. 
 ```{r}
 #"engage_fact", range: 3.208853 4.110526, diff: 0.901673
 #"rigor_fact", range: 3.454870 4.217949, diff: 0.763079
