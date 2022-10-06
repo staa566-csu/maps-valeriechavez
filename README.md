@@ -2,9 +2,9 @@
 maps-valeriechavez created by GitHub Classroom
 
 
-I have created a map of High School Student's self-reported peer-belonging by state. For each school who surveyed studentt's responses were compiled into a key factor rating. These key factors were then aggregated at the state level. 
+I have created a map of High School Student's self-reported peer-belonging by state. For each school that surveyed student's responses were compiled into a key factor rating. These key factors were then aggregated at the state level. 
 
-Note that not all 48 states in the continental US surveyed, those who do not have any data are shown in gray. 
+Note that not all 48 states in the continental US surveyed, those who do not have any data are shown in gray. Also note that sample sizes vary by state, though this is not reflected on the map. 
 
 Below are descriptions of the data:
 data source: 
