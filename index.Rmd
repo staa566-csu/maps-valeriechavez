@@ -46,9 +46,12 @@ Prepping data
 HSsegcount<-read.csv("/Users/valerier/Dropbox (CEP)/YouthTruth/Report Production/Reports_22JU/clients/comp_seg_22JU/OSE_HS/comp_seg_22JU/seg/segcount.csv")
 HSsegmean<- read.csv("/Users/valerier/Dropbox (CEP)/YouthTruth/Report Production/Reports_22JU/clients/comp_seg_22JU/OSE_HS/comp_seg_22JU/seg/segmean.csv")
 
+HSpercentpos<- read.csv("/Users/valerier/Dropbox (CEP)/YouthTruth/Report Production/Reports_22JU/clients/comp_seg_22JU/OSE_HS/comp_seg_22JU/seg/seghighprop.csv")
+
 #removing variables other than state, and first column
 HSsegcount<-HSsegcount[71:106,-1]
 HSsegmean<-HSsegmean[71:106, -1]
+
 
 ```
 
@@ -96,11 +99,11 @@ As it is likert data the values tend toward an average of three, peer belonging 
 
 #Interested in looking at Peer belonging 
 
+b<-c(1,3,5)
 YTUSA<-ggplot(data=YTmap, mapping= aes(x = long, y = lat, group = group))+
   geom_polygon(color="white", aes(fill=peers_fact)) +
   theme_tufte()+
-  scale_fill_viridis_c(option = "plasma")+
-  scale_colour_gradientn(colours = "plasma")+
+  scale_fill_viridis_c(option = "plasma",begin = 0, end = 1)+
     theme(axis.ticks.x = element_blank(),
         axis.text.x = element_blank(),
         axis.ticks.y = element_blank(),
@@ -123,6 +126,20 @@ YTUSA
 
 
 
+```{r}
+YTmapplotly<-ggplotly(YTUSA) %>%
+  layout(title = list(text = paste0('Belonging & Peer Collaboration by State',
+                                    '<br>',
+                                    '<sup>',
+                                    'Average key rating for High School students by state. Values ranged from 1-5 on a likert scale, n= 262,572.',
+                                    '</sup>')))
+
+YTmapplotly
+
+```
 
 
+```{r}
+saveWidget(as_widget(YTmapplotly), "YTmapplotly.html")
+```
 
